@@ -69,11 +69,13 @@ class PardusZabitKatibi(QMainWindow):
         super().__init__()
         self.setWindowTitle("Pardus Zabıt Katibi")
         self.setGeometry(100, 100, 800, 600)
-        
+
+        # Uygulama simgesini belirle
         self.icon_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "icons")
-        if not os.path.exists(self.icon_path):
-            self.icon_path = "/home/serhat/Pardus_Zabıt_Katibi/icons/"
-        
+        app_icon_path = os.path.join(self.icon_path, "zbt.png")
+        if os.path.exists(app_icon_path):
+            self.setWindowIcon(QIcon(app_icon_path))
+
         self.editor = QTextEdit()
         self.setCentralWidget(self.editor)
         self.current_file = None
